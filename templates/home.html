@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Input Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+      form {
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background: #ffffff;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+      }
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Data Input Form</h1>
+    <form method="POST" action="{{ url_for('predict_data') }}">
+      <label for="temperature">Temperature</label>
+      <input
+        type="number"
+        id="temperature"
+        name="temperature"
+        step="0.1"
+        required
+      />
+
+      <label for="rh">Relative Humidity (RH)</label>
+      <input type="number" id="rh" name="rh" step="0.1" required />
+
+      <label for="ws">Wind Speed (Ws)</label>
+      <input type="number" id="ws" name="ws" step="0.1" required />
+
+      <label for="rain">Rain (mm)</label>
+      <input type="number" id="rain" name="rain" step="0.1" required />
+
+      <label for="ffmc">FFMC</label>
+      <input type="number" id="ffmc" name="ffmc" step="0.1" required />
+
+      <label for="dmc">DMC</label>
+      <input type="number" id="dmc" name="dmc" step="0.1" required />
+
+      <label for="isi">ISI</label>
+      <input type="number" id="isi" name="isi" step="0.1" required />
+
+      <label for="classes">Classes</label>
+      <input type="number" id="classes" name="classes" step="0.1" required />
+
+      <label for="region">Classes</label>
+      <input type="number" id="region" name="region" step="0.1" required />
+
+      <button type="submit">Submit</button>
+    </form>
+    <h2>The Predicted FWI is {{results}}</h2>
+  </body>
+</html>
